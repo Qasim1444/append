@@ -342,14 +342,11 @@ text-align: center;
   color: white;
 }
 
+
+
 .image-container {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  opacity: 0;
-  transition: opacity 0.5s ease;
 }
 
 .image-container img {
@@ -358,24 +355,45 @@ text-align: center;
   height: auto;
 }
 
-.image-container:hover {
-  opacity: 1;
-}
-
-.image-container::before {
-  content: attr(data-text);
+.image-container:hover::after {
+  content: attr(data-text) "\A" attr(data-text2); /* Added "\A" for line break */
+  white-space: pre-wrap;
   position: absolute;
-  left: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px; /* Increased height to accommodate two lines of text */
+  background: rgba(0, 0, 0, 0.5);
   color: white;
+  text-align: left;
+  padding: 10px; /* Added padding for better appearance */
+  box-sizing: border-box; /* Ensures padding is included in the height */
+  line-height: 1.5; /* Adjust line height for better readability */
 }
 
-.image-container::after {
-  content: '<i class="icon-class"></i>';
+.image-container:hover::before {
+  content: attr(icontag); /* Replace "icon-class" with your icon's class */
   position: absolute;
-  right: 10px;
-  color: white;
+  bottom: 0;
+  right: 10px; /* Adjust this value to change the position of the icon */
+  
+}
+.Portfolioimg {
+  width: 100%;
+  height: auto;
+  background-image: url(https://bootstrapmade.com/demo/templates/Append/assets/img/masonry-portfolio/masonry-portfolio-6.jpg);
 }
 
+.Portfolioimg p {
+  padding-top: 100vh;
+  background-repeat: no-repeat;
+  margin: 0; /* Remove default margin */
+}
+
+.Portfolioimg p span {
+  display: block;
+  text-align: right; /* Align the span containing "usman" to the right */
+}
 
 /*-------- --------------------------------------------
 # Sections Portfolio end
@@ -425,6 +443,31 @@ margin-bottom: 155px;
 {
  color: #f6b5b5;
 }
+.Testimonials .carousel-item
+{
+background-color: white;
+margin-top: 100px;
+}
+.carousel-indicators [data-bs-target] {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 10px; /* change width */
+  height: 10px; /* change height */
+  padding: 0;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: red;
+  background-clip: padding-box;
+  border: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: .5;
+  transition: opacity .6s ease;
+  border-radius: 100%; // /* add border-radius */
+}
+
 /*-------- --------------------------------------------
 # Sections Testimonials end
 --------------------------------------------------------------*/
